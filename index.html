@@ -1,12 +1,223 @@
 <!DOCTYPE html>
 <html lang="ru">
+
   <head>
-    <meta charset="utf-8">
-    <title>HTML Academy: Девайс</title>
+	  <meta charset="utf-8">
+    <title>Интернет-магазин гаджетов "Девайс"</title>
   </head>
+
   <body>
 
-    <p>Репозиторий создан для обучения на профессиональном онлайн‑курсе «<a href="https://htmlacademy.ru/intensive/htmlcss">HTML и CSS, уровень 1</a>».</p>
+	<header class="main-header">
+	  <!-- ВОПРОС -->
+  	<!-- Лого текстом это ок? -->
+		<a class="header-logo">DEVICE</a>
+		<div class="search-form">
+		  Поиск по сайту
+			<!-- Тут будет форма поиска -->
+		</div>
+		<!-- ВОПРОС -->
+		<!-- Три ссылки ниже разбила в два списка, это правильно? Или можно было бы сделать их в один список? -->
+		<ul class="user-navigation">
+      <li>
+        <a class="login-link" href="#">Войти</a>
+      </li>
+    </ul>
+    <ul class="shop-actions-navigation">
+    	<li>
+    		<a class="comparelist-link" href="comparelist.html">Сравнить</a>
+    	</li>
+    	<li>
+    	  <a class="cart-link" href="cart.html">Корзина</a>
+    	</li>
+    </ul>
+    <nav class="main-navigation">
+			<ul class="site-navigation">
+        <li>
+          <a href="catalog.html">Каталог товаров</a>
+          <ul class="catalog-subnavigation">
+          	<li><a href="catalog/vr.html">Виртуальная реальность</a></li>
+          	<li><a href="catalog/selfie-monopods.html">Моноподы для селфи</a></li>
+          	<li><a href="catalog/action-cameras.html">Экшн-камеры</a></li>
+          	<li><a href="catalog/fitness-bands.html">Фитнес-браслеты</a></li>
+          	<li><a href="catalog/smart-watches.html">Умные часы</a></li>
+          	<li><a href="catalog/quadcopters.html">Квадрокоптеры</a></li>
+          </ul>
+        </li>
+        <li><a href="delivery.html">Доставка</a></li>
+        <li><a href="warranty.html">Гарантия</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+	  </nav>
+	</header>
+
+	<main class="container">
+		<h1 class="visually-hidden">Интернет-магазин гаджетов "Девайс"</h1>
+
+    <!-- ВОПРОС -->
+		<!-- Эти разделы не нужно было верстать, но я увидела это в задании только после того, как сверстала.
+		Сейчас просто закомментировала, т. к. потом этот код может пригодиться. Или правильнее было бы сделать два коммита, один сэтим кодом, а второй уже без него?
+
+		<section class="product-categories">
+		  <h2 class="visually-hidden">Категории товаров</h1>
+			<ul class="product-categories-list">
+				<li>
+					<h3 class="product-categories-header">
+						<a href="catalog/vr.html">Виртуальная реальность</a>
+				  </h3>
+				</li>
+				<li>
+					<h3 class="product-categories-header">
+						<a href="catalog/selfie-monopods.html">Моноподы для селфи</a>
+				  </h3>
+				</li>
+				<li>
+					<h3 class="product-categories-header">
+						<a href="catalog/action-cameras.html">Экшн-камеры</a>
+				  </h3>
+				</li>
+				<li>
+					<h3 class="product-categories-header">
+						<a href="catalog/fitness-bands.html">Фитнес-браслеты</a>
+				  </h3>
+				</li>
+				<li>
+					<h3 class="product-categories-header">
+						<a href="catalog/smart-watches.html">Умные часы</a>
+				  </h3>
+				</li>
+				<li>
+					<h3 class="product-categories-header">
+						<a href="catalog/quadcopters.html">Квадрокоптеры</a>
+				  </h3>
+				</li>
+			</ul>
+		</section>
+		<section class="services-slider">
+		  <h2 class="visually-hidden">Наши услуги</h2>
+			<ul class="services-navigation">
+				<li class="services-navigation-current">
+					<a href="#">Доставка</a>
+				</li>
+				<li>
+					<a href="#">Гарантия</a>
+				</li>
+				<li>
+					<a href="#">Кредит</a>
+				</li>
+			</ul>
+			<div class="services-description-slide">
+				<h3 class="services-header">Доставка</h3>
+				<p>Мы с удовольствием доставим ваш товар прямо к вашему подъезду совершенно бесплатно! Ведь мы неплохо заработаем, поднимая его на ваш этаж.</p>
+			</div>
+			<div class="services-description-slide visually-hidden">
+				<h3 class="services-header">Гарантия</h3>
+				<p>Если из-за возгорания купленного у нас товара у вас сгорит дом — не переживайте, мы выдадим вам новый.</p>
+				<p>Товар, не дом, конечно же.</p>
+			</div>
+			<div class="services-description-slide visually-hidden">
+				<h3 class="services-header">Кредит</h3>
+				<p>Залезть в долговую яму стало проще! Кредитные консультанты подберут для вас наиболее выгодные условия кредита. Выгодные для нашего банка, разумеется.</p>
+			</div>
+		</section>
+		<section class="popilar-brands">
+		  <h2 class="visually-hidden">Популярные бренды</h2>
+			<ul class="popular-brands-list">
+				<li>
+					<a href="#">
+						<img src="http://placehold.it/150x100" alt="DJI">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="http://placehold.it/150x100" alt="SP GADGETS">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="http://placehold.it/150x100" alt="GoPro">
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="http://placehold.it/150x100" alt="VIVE">
+					</a>
+				</li>
+			</ul>
+		</section>
+		-->
+
+		<section class="about-us">
+			<h2>О нас</h2>
+			<p>Огромный выбор гаджетов не оставит равнодушным гика, который есть в каждом из нас.</p>
+			<p>Мы можем доставить ваш товар в самые отдаленные точки России! DEVICE работает со многими транспортными компаниями:</p>
+			<ul>
+				<li>Деловые линии</li>
+				<li>Автотрейдинг</li>
+				<li>ЖелДорЭкспедиция</li>
+			</ul>
+			<a class="button" href="about-us.html">Подробнее о нас</a>
+		</section>
+		<section class="contacts">
+			<h2>Контакты</h2>
+			<p>Вы можете забрать товар сами, заехав в наш офис. Заодно, вы сможете проверить работоспособность покупки. Всякое бывает.</p>
+			<p>
+			  <!-- ВОПРОС -->
+  	    <!-- Карта будет вставлена картинкой или через iframe? -->
+			  <a href="map.html"><img src="http://placehold.it/150x100" alt="Карта проезда. г. Москва, ул. Строителей, 15"></a>
+			 </p>
+			<a class="button" href="about-us.html">Напишите нам</a>
+		</section>
+	</main>
+
+  <footer class="main-footer">
+  	<a class="footer-logo">DEVICE</a>
+  	<!-- ВОПРОС -->
+  	<!-- В списке ниже можно использовать те же классы для ссылок, что и в шапке? Или лучше задать новые? -->
+  	<ul class="footer-options-links">
+  		<li>
+  		  <a class="login-link" href="#">Войти</a>
+  		</li>
+  		<li>
+  		  <a class="comparelist-link" href="comparelist.html">Сравнить</a>
+    	</li>
+    	<li>
+    	  <a class="cart-link" href="cart.html">Корзина</a>
+    	</li>
+  	</ul>
+  	<!-- ВОПРОС -->
+  	<!-- Очень не нравится, что в футере получилось много необъединенных никакой группой элементов. Например, адрес и телефон по сути один смысловой блок, но ссылки навигации разбивают их на два. Это нормально, так делать? Или можно было как-то по-другому? -->
+  	<p class="footer-address">г. Москва, ул. Строителей, 15</p>
+  	<ul class="footer-navigation">
+  		<li><a href="delivery.html">Доставка</a></li>
+      <li><a href="warranty.html">Гарантия</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+  	</ul>
+  	<p class="footer-phone">Тел.: +7 (495) 495-95-95</p>
+  	<div class="footer-social">
+  	  <ul>
+        <li><a class="social-button" href="#">Facebook</a></li>
+        <li><a class="social-button" href="#">Instagram</a></li>
+        <li><a class="social-button" href="#">Twitter</a></li>
+      </ul>
+  	</div>
+  	<p class="footer-copyright">
+        <a href="https://htmlacademy.ru/intensive/htmlcss"><img src="http://placehold.it/150x100" alt="HTML Academy"></a>
+    </p>
+  </footer>
+
+	<section class="modal modal-login">
+    <h2>Личный кабинет</h2>
+    <p>Введите свой логин и пароль.</p>
+    <!-- Здесь будет форма авторизации -->
+    <span class="modal-close">x</span>
+  </section>
+
+  <section class="modal modal-map">
+    <h2 class="visually-hidden">Как до нас добраться</h2>
+    <!-- Здесь будет интерактивная карта -->
+    <span class="modal-close">x</span>
+  </section>
 
   </body>
 </html>
