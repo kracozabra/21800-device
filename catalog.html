@@ -9,19 +9,19 @@
   <body>
 
 	<header class="main-header">
-		<a class="header-logo">DEVICE</a>
+		<a class="header-logo" href="/">DEVICE</a>
 		<div class="search-form">
 		  Поиск по сайту
 			<!-- Тут будет форма поиска -->
 		</div>
-		<ul class="user-navigation">
-      <li><a class="profile-link" href="#">Валентин Петухов</a></li>
-      <li><a class="logout-link" href="#">Выйти</a></li>
-    </ul>
-    <ul class="shop-actions-navigation">
-    	<li><a class="comparelist-link" href="comparelist.html">Сравнить</a></li>
-    	<li><a class="cart-link" href="cart.html">Корзина</a></li>
-    </ul>
+    <div class="user-navigation">
+      <div class="user-block">
+        <a class="user-navigation-link profile-link" href="#">Валентин Петухов</a>
+        <a class="user-navigation-link logout-link" href="#">Выйти</a>
+      </div>
+      <a class="user-navigation-link comparelist-link" href="comparelist.html">Сравнить</a>
+      <a class="user-navigation-link cart-link" href="cart.html">Корзина</a>
+    </div>
     <nav class="main-navigation">
 			<ul class="site-navigation">
         <li>
@@ -51,18 +51,16 @@
     </ul>
 
     <section class="sorting">
-      <h2 class="filters-header">Сортировка</h2>
+      <h2 class="filter-header">Сортировка</h2>
       <!-- Здесь будет сортировка -->
     </section>
 
-    <section class="filters">
-      <!-- ВОПРОС -->
-      <!-- Не очень поняла, нужно ли было верстать форму фильтров, но на всякий случай сделала. Значение атрибута "action" для формы взяла из кусров.  -->
+    <section class="filter">
       <form action="https://echo.htmlacademy.ru" method="post">
-        <h2 class="filters-header">Фильтр</h2>
-        <h3 class="filters-subheadline">Стоимость</h3>
+        <h2 class="filter-title">Фильтр</h2>
+        <h3 class="filter-subtitle">Стоимость</h3>
         <!-- Здесь будет ползунок стоимости -->
-        <h3 class="filters-subheadline">Цвет</h3>
+        <h3 class="filter-subtitle">Цвет</h3>
         <ul class="colors-filter">
           <li>
             <label><input type="checkbox" name="black-color" checked>Черный</label>
@@ -80,7 +78,7 @@
             <label><input type="checkbox" name="pink-color">Розовый</label>
           </li>
         </ul>
-        <h3 class="filters-subheadline">Bluetooth</h3>
+        <h3 class="filter-subtitle">Bluetooth</h3>
         <ul class="bluetooth-filter">
           <li>
             <label><input type="radio" name="bluetooth" value="yes" checked>Есть</label>
@@ -89,55 +87,63 @@
             <label><input type="radio" name="bluetooth" value="no">Нет</label>
           </li>
         </ul>
-        <input class="filters-button" type="submit" value="Паказать">
+        <button class="filter-button" type="button">Показать</button>
       </form>
     </section>
     <section class="catalog">
       <h2 class="visually-hidden">Список моноподов для селфи</h2>
       <ul class="catalog-list">
         <li class="catalog-item">
-          <h3>
-            <a href="catalog-item.html">Любительская селфи-палка</a>
-          </h3>
           <p class="catalog-item-image">
-            <a href="catalog-item.html">
-              <img src="http://placehold.it/360x380" width="360" height="380" alt="Любительская селфи-палка">
-            </a>
+            <img src="http://placehold.it/360x380" width="360" height="380" alt="Любительская селфи-палка">
           </p>
-          <p class="catalog-item-price">500 руб.</p>
+          <div class="catalog-item-info">
+            <h3><a href="catalog-item.html">Любительская селфи-палка</a></h3>
+            <p class="catalog-item-price">500 руб.</p>
+          </div> 
+          <div class="catalog-item-actions">
+            <button class="button add-to-cart-button" type="button">В корзину</button>
+            <button class="button compare-button" type="button">Добавить к сравнению</button>
+          </div>
         </li>
         <li class="catalog-item">
-          <h3>
-            <a href="catalog-item.html">Профессиональная селфи-палка</a>
-          </h3>
           <p class="catalog-item-image">
-            <a href="catalog-item.html">
-              <img src="http://placehold.it/360x380" width="360" height="380" alt="Профессиональная селфи-палка">
-            </a>
+            <img src="http://placehold.it/360x380" width="360" height="380" alt="Профессиональная селфи-палка">
           </p>
-          <p class="catalog-item-price">1 500 руб.</p>
+          <div class="catalog-item-info">
+            <h3><a href="catalog-item.html">Профессиональная селфи-палка</a></h3>
+            <p class="catalog-item-price">1 500 руб.</p>
+          </div>
+          <div class="catalog-item-actions">
+            <button class="button add-to-cart-button" type="button">В корзину</button>
+            <button class="button compare-button" type="button">Добавить к сравнению</button>
+          </div>
         </li>
         <li class="catalog-item">
-          <h3>
-            <a href="catalog-item.html">Непотопляемая селфи-палка</a>
-          </h3>
           <p class="catalog-item-image">
-            <a href="catalog-item.html">
               <img src="http://placehold.it/360x380" width="360" height="380" alt="Непотопляемая селфи-палка">
-            </a>
           </p>
-          <p class="catalog-item-price">2 500 руб.</p>
+          <div class="catalog-item-info">
+            <h3><a href="catalog-item.html">Непотопляемая селфи-палка</a></h3>
+            <p class="catalog-item-price">2 500 руб.</p>
+          </div>
+          <div class="catalog-item-actions">
+            <button class="button add-to-cart-button" type="button">В корзину</button>
+            <button class="button compare-button" type="button">Добавить к сравнению</button>
+          </div>
         </li>
         <li class="catalog-item">
-          <h3>
-            <a href="catalog-item.html">Селфи-палка «Следуй за мной»</a>
-          </h3>
           <p class="catalog-item-image">
-            <a href="catalog-item.html">
               <img src="http://placehold.it/360x380" width="360" height="380" alt="Селфи-палка «Следуй за мной»">
-            </a>
           </p>
-          <p class="catalog-item-price">4 900 руб.</p>
+          <div class="catalog-item-info">
+            <h3><a href="catalog-item.html">Селфи-палка «Следуй за мной»</a></h3>
+            <p class="catalog-item-price">4 900 руб.</p>
+          </div>
+          <div class="catalog-item-actions">
+            <button class="button add-to-cart-button" type="button">В корзину</button>
+            <button class="button compare-button" type="button">Добавить к сравнению</button>
+          </div>
         </li>
       </ul>
       <!-- Здесь будет навигация по страницам -->
