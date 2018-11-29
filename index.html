@@ -4,17 +4,20 @@
   <head>
 	  <meta charset="utf-8">
     <title>Интернет-магазин гаджетов "Девайс"</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
   </head>
 
   <body>
 
 	<header class="main-header">
 		<a class="header-logo">DEVICE</a>
-		<div class="search">
-			<form class="search-form" action="https://echo.htmlacademy.ru" method="post">
-			  <label for="search" class="visually-hidden">Поиск по сайту</label>
-			  <input type="search" name="search" id="search" placeholder="Поиск по сайту">
-			  <button class="search-button hidden" type="submit">Найти</button> 
+		<div class="site-search">
+			<form class="site-search-form" action="https://echo.htmlacademy.ru" method="post">
+			  <label for="site-search" class="visually-hidden">Поиск по сайту</label>
+			  <input type="search" name="site-search" id="site-search" placeholder="Поиск по сайту">
+			  <button class="site-search-button" type="submit">Найти</button> 
 			</form>
 		</div>
 		<div class="user-navigation">
@@ -26,7 +29,7 @@
     </div>
     <nav class="main-navigation">
 			<ul class="site-navigation">
-        <li>
+        <li class="site-navigation-item">
           <a href="catalog.html">Каталог товаров</a>
           <ul class="catalog-subnavigation">
           	<li><a href="catalog/vr.html">Виртуальная реальность</a></li>
@@ -37,9 +40,9 @@
           	<li><a href="catalog/quadcopters.html">Квадрокоптеры</a></li>
           </ul>
         </li>
-        <li><a href="delivery.html">Доставка</a></li>
-        <li><a href="warranty.html">Гарантия</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
+        <li class="site-navigation-item"><a href="delivery.html">Доставка</a></li>
+        <li class="site-navigation-item"><a href="warranty.html">Гарантия</a></li>
+        <li class="site-navigation-item"><a href="contacts.html">Контакты</a></li>
       </ul>
 	  </nav>
 	</header>
@@ -61,21 +64,21 @@
 		<section class="services-slider">
 		  <h2 class="visually-hidden">Наши услуги</h2>
 			<ul class="services-navigation">
-				<li class="services-navigation-current"><a href="#">Доставка</a></li>
-				<li><a href="#">Гарантия</a></li>
-				<li><a href="#">Кредит</a></li>
+				<li class="services-navigation-current"><a class="button" href="#">Доставка</a></li>
+				<li><a class="button" href="#">Гарантия</a></li>
+				<li><a class="button" href="#">Кредит</a></li>
 			</ul>
 			<div class="services-description-slide">
-				<h3 class="services-header">Доставка</h3>
+				<h3>Доставка</h3>
 				<p>Мы с удовольствием доставим ваш товар прямо к вашему подъезду совершенно бесплатно! Ведь мы неплохо заработаем, поднимая его на ваш этаж.</p>
 			</div>
 			<div class="services-description-slide hidden">
-				<h3 class="services-header">Гарантия</h3>
+				<h3>Гарантия</h3>
 				<p>Если из-за возгорания купленного у нас товара у вас сгорит дом — не переживайте, мы выдадим вам новый.</p>
 				<p>Товар, не дом, конечно же.</p>
 			</div>
 			<div class="services-description-slide hidden">
-				<h3 class="services-header">Кредит</h3>
+				<h3>Кредит</h3>
 				<p>Залезть в долговую яму стало проще! Кредитные консультанты подберут для вас наиболее выгодные условия кредита. Выгодные для нашего банка, разумеется.</p>
 			</div>
 		</section>
