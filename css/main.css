@@ -1,36 +1,37 @@
 @font-face {
-  font-family: "Gilroy ExtraBold";
+  font-family: "Gilroy";
   src: url("../fonts/gilroyextrabold-webfont.woff2") format("woff2");
-  font-weight: normal;
+  font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Gilroy Light";
+  font-family: "Gilroy";
   src: url("../fonts/gilroylight-webfont.woff2") format("woff2");
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-    font-family: "Open Sans Light";
-    src: url("../fonts/opensans-light-webfont.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Open Sans";
+  src: url("../fonts/opensans-light-webfont.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "Open Sans Regular";
-    src: url("../fonts/opensans-regular-webfont.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Open Sans";
+  src: url("../fonts/opensans-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 
 body {
   padding: 0;
 
-  font-family: "Open Sans Light", Arial, sans-serif;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 300;
   font-size: 15px;
   line-height: 30px;
   letter-spacing: 0.2px;
@@ -39,7 +40,6 @@ body {
   background-color: #ffffff;
 }
 
-/**/
 .hidden {
   display: none;
 }
@@ -55,14 +55,14 @@ body {
   overflow: hidden;
 }
 
-
 a {
   text-decoration: none;
   color: #000000;
 }
 
 .button {
-  font-family: "Gilroy ExtraBold", Arial, sans-serif;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 3.6px;
@@ -94,7 +94,8 @@ a {
 .container h1,
 .container h2,
 .container h3 {
-  font-family: "Gilroy ExtraBold", Arial, sans-serif;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 47px;
   line-height: 48px;
   letter-spacing: 0.5px;
@@ -108,7 +109,8 @@ a {
 
 .header-logo,
 .footer-logo {
-  font-family: "Gilroy ExtraBold", Arial, sans-serif;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 48px;
   line-height: 48px;
   letter-spacing: 0.5px;
@@ -149,6 +151,7 @@ a {
 .site-search-button {
   font: inherit;
   font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 300;
   color: #000000;
   
   text-align: center;
@@ -199,7 +202,8 @@ a {
 }
 
 .site-navigation-item > a {
-  font-family: "Gilroy ExtraBold", Arial, sans-serif;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 3.6px;
@@ -221,7 +225,8 @@ a {
 }
 
 .product-categories-list a {
-  font-family: "Gilroy ExtraBold", Arial, sans-serif;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 18px;
   line-height: 24px;
   color: #000000;
@@ -244,7 +249,8 @@ a {
 }
 
 .about-us li{
-  font-family: "Gilroy ExtraBold", Arial, sans-serif;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 16px;
   line-height: 40px;
   letter-spacing: 0px;
@@ -288,7 +294,8 @@ a {
 }
 
 .footer-navigation a{
-  font-family: "Gilroy ExtraBold", Arial, sans-serif;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 3.6px;
@@ -323,7 +330,8 @@ a {
 }
 
 h2.filter-title {
-  font-family: "Gilroy ExtraBold", Arial, sans-serif;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 3.2px;
@@ -335,7 +343,8 @@ h2.filter-title {
 }
 
 .filter-form legend {
-  font-family: "Gilroy ExtraBold";
+  font-family: "Gilroy";
+  font-weight: 800;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0.2px;
@@ -354,13 +363,15 @@ h2.filter-title {
 }
 
 .catalog-item h3{
-  font-family: "Gilroy ExtraBold", Arial, sans-serif;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 18px;
   line-height: 24px;
 }
 
 .catalog-item-price {
-  font-family: "Gilroy Light", Arial, sans-serif;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 300;
   font-size: 16px;
   line-height: 24px;
 }
