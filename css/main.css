@@ -340,7 +340,8 @@ h1, h2, h3 {
   color: rgba(0, 0, 0, 0.1);
 }
 
-h2.filter-title {
+h2.filter-title,
+h2.sorting-title {
   font-family: "Gilroy", Arial, sans-serif;
   font-weight: 800;
   font-size: 16px;
@@ -478,9 +479,17 @@ h2.filter-title {
 }
 
 .services-slider {
-  display: flex;
-  align-items: center;
+  padding-top:70px;
+  padding-bottom:70px;
   margin-bottom: 95px;
+
+  background-image: linear-gradient(#ffffff 100px, #e5e5e5 100px);
+}
+
+.services-slider .container {
+  display: flex;
+  align-items: center;v b 
+  min-height: 320px;
 }
 
 .services-navigation {
@@ -558,6 +567,7 @@ h2.filter-title {
   content: "";
   width: 80px;
   height: 7px;
+
   background-color: #ffc600;
 }
 
@@ -572,10 +582,6 @@ h2.filter-title {
   display: inline-block;
 }
 
-.inner-page main{
-  padding-left: 60px;
-}
-
 .inner-page .main-header{
   margin-bottom: 40px;
 }
@@ -588,6 +594,10 @@ main .breadcrumbs {
   margin-bottom: 50px;
 }
 
+main.container {
+ padding-left: 60px;
+}
+
 .breadcrumbs li {
   display: inline-block;
 }
@@ -596,21 +606,68 @@ main .breadcrumbs {
   margin-right: 35px;
 }
 
+.sorting-column-wrapper {
+  background-image: linear-gradient(to right, #dbdbdb 50%, #ebebeb 50%);
+}
+
+.sorting-column {
+  display: flex;
+  min-height: 70px;
+}
+
+h2.filter-title {
+  width: 270px;
+  padding-top: 24px;
+  padding-left: 60px;
+
+  background-color: #dbdbdb;
+}
+
+.sorting {
+  width: 760px;
+  display: flex;
+  align-items: center;
+}
+
+.catalog-columns-wrapper {
+  background-image: linear-gradient(to right, #efefef 50%, #ffffff 50%);
+}
+
 .catalog-columns {
   display: flex;
-  justify-content: space-between;
 }
 
 .left-column {
-  width: 268px;
+  width: 270px;
+  padding-left: 60px;
+  margin-left: auto;
+
+  background-color: #efefef;
 }
 
 .right-column {
   width: 760px;
+  padding-left: 70px;
+  padding-top: 70px;
+  padding-bottom: 80px;
+  margin-right: auto;
+
+  background-color: #ffffff;
+}
+
+.sorting {
+  padding-left: 70px;
+
+  background-color: #ebebeb;
 }
 
 .catalog-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.catalog-item p {
+  padding: 0;
+  margin: 0;
 }
