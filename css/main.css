@@ -61,6 +61,7 @@ a {
 }
 
 .button {
+  display: inline-block;
   height: 40px;
 
   font-family: "Gilroy", Arial, sans-serif;
@@ -107,6 +108,7 @@ h1, h2, h3 {
 .main-header {
   color: #000000;
   background-color: #f7e296;
+  background-image: linear-gradient(#ffffff 40px, #f7e296 40px);
 }
 
 .header-logo,
@@ -202,7 +204,8 @@ h1, h2, h3 {
 .breadcrumbs,
 .colors-filter,
 .bluetooth-filter,
-.catalog-list {
+.catalog-list,
+.services-slider-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -292,7 +295,7 @@ h1, h2, h3 {
 
 .footer-options-links a:hover,
 .footer-options-links a:focus{
-  color: rgba(255, 255, 255);
+  color: rgba(255, 255, 255, 1);
 }
 
 .footer-options-links a:active{
@@ -376,6 +379,10 @@ h2.sorting-title {
   color: #a6a6a6;
 }
 
+.catalog-item {
+  margin-bottom: 70px;
+}
+
 .catalog-item h3{
   font-family: "Gilroy", Arial, sans-serif;
   font-weight: 800;
@@ -420,7 +427,7 @@ h2.sorting-title {
   display: flex;
   flex-direction: column;
   padding: 60px;
-  padding-top: 22px;
+  padding-top: 17px;
   margin-bottom: 100px;
 }
 
@@ -442,7 +449,7 @@ h2.sorting-title {
 .site-search {
   width: 440px;
   height: 50px;
-  margin-right: 100px;
+  margin-right: auto;
 }
 
 .user-block {
@@ -470,12 +477,21 @@ h2.sorting-title {
 }
 
 .product-categories {
-  margin-bottom: 85px;
+  margin-bottom: 10px;
 }
 
 .product-categories-list {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.product-categories-list li {
+  width: 160px;
+  margin-right: 40px;
+}
+
+.product-categories-list li:nth-child(6n) {
+  margin-right: 0px;
 }
 
 .services-slider {
@@ -483,18 +499,37 @@ h2.sorting-title {
   padding-bottom:70px;
   margin-bottom: 95px;
 
-  background-image: linear-gradient(#ffffff 100px, #e5e5e5 100px);
+  background-image: linear-gradient(#ffffff 170px, #e5e5e5 170px);
 }
 
 .services-slider .container {
   display: flex;
-  align-items: center;v b 
   min-height: 320px;
 }
 
 .services-navigation {
+  box-sizing: border-box;
   width: 285px;
+ /* padding-top: 80px;*/
   margin-right: 115px;
+  min-height: 320px;
+  border-right: 7px solid #000000;
+}
+
+.services-navigation li {
+  margin-bottom: 25px;
+}
+
+.services-navigation li:first-child {
+  margin-top: 80px;
+}
+
+.services-navigation li:last-child {
+  margin-bottom: 70px;
+}
+
+.services-description-slide {
+  padding-top: 75px;
 }
 
 .popular-brands-list {
@@ -528,6 +563,7 @@ h2.sorting-title {
 
 .main-footer {
   padding-top: 65px;
+  padding-bottom: 65px;
 }
 
 .footer-top {
@@ -575,14 +611,21 @@ h2.sorting-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 80px;
 }
 
 .footer-social li {
   display: inline-block;
 }
 
-.inner-page .main-header{
+.footer-copyright {
+  margin: 0px;
+}
+
+.footer-copyright img {
+  vertical-align: bottom;
+}
+
+.inner-page .main-header {
   margin-bottom: 40px;
 }
 
