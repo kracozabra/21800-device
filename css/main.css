@@ -131,6 +131,9 @@ h1, h2, h3 {
   color: #000000;
 }
 
+/*ВОПРОС!!! Есть ли какой-нибудь селектор, позволяющий выбрать все ссылки, у которых указан href?
+Мне это нужно для того, чтобы логотип на главной странице (он размечен как раз как ссылка без href)
+не реагировал на hover/focus/active?*/
 .header-logo:hover,
 .header-logo:focus {
   color: rgba(0, 0, 0, 0.6);
@@ -166,6 +169,8 @@ h1, h2, h3 {
 }
 
 .site-search-button {
+  padding: 7px 18px;
+
   font: inherit;
   font-family: "Open Sans", Arial, sans-serif;
   font-weight: 300;
@@ -354,6 +359,23 @@ h1, h2, h3 {
   background-color: #464646;
 }
 
+.footer-options-links:not(:last-child) {
+  margin-right: 40px;
+}
+
+.footer-options-links span{
+  padding-right: 10px;
+}
+
+.footer-options-links a:hover path,
+.footer-options-links a:focus path {
+  fill: rgba(255, 198, 0, 0.6);
+}
+
+.footer-options-links a:active path {
+  fill: rgba(255, 198, 0, 0.3);
+}
+
 .footer-options-links a{
   line-height: 36px;
   color: rgba(255, 255, 255, 0.7);
@@ -392,6 +414,10 @@ h1, h2, h3 {
   color: rgba(255, 255, 255, 0.3);
 }
 
+.profile-link {
+  margin-right: 20px;
+}
+
 .breadcrumbs a,
 .breadcrumbs-current {
   font-size: 14px;
@@ -415,7 +441,7 @@ h2.sorting-title {
   font-weight: 800;
   font-size: 16px;
   line-height: 24px;
-  letter-spacing: 3.2px;
+  letter-spacing: 3.5px;
   text-transform: uppercase;
 }
 
@@ -426,12 +452,19 @@ h2.sorting-title {
 }
 
 .filter-form legend {
+  min-width: 200px;
+  margin-top: 40px;
+  padding-top: 10px;
+  padding-bottom: 16px;
+
   font-family: "Gilroy";
   font-weight: 800;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0.2px;
   color: #000000;
+
+  border-top: 2px solid #000000;
 }
 
 .filter-form label {
@@ -445,11 +478,43 @@ h2.sorting-title {
   color: #a6a6a6;
 }
 
-.catalog-item {
-  margin-bottom: 70px;
+.filter-form fieldset {
+  margin-bottom: 34px;
 }
 
-.catalog-item h3{
+.colors-filter,
+.bluetooth-filter {
+  padding-left: 37px;
+}
+
+.filter-button {
+  min-width: 200px;
+}
+
+.catalog-item {
+  position: relative;
+  width: 360px;
+  margin-bottom: 50px;
+}
+
+.catalog-item-image img {
+  vertical-align: bottom;
+}
+
+/*ВОПРОС!!! Куда повесить hover, чтобы это работало?*/
+.catalog-item-actions:hover {
+  visibility: visible;
+}
+
+.catalog-item-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 30px;
+}
+
+.catalog-item h3 {
+  width: 250px;
   font-family: "Gilroy", Arial, sans-serif;
   font-weight: 800;
   font-size: 18px;
@@ -463,9 +528,32 @@ h2.sorting-title {
   line-height: 24px;
 }
 
+.catalog-item-actions {
+  visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 360px;
+  height: 380px;
+
+  background-color: rgba(238, 238, 238, 0.7);
+}
+
+.add-to-cart-link {
+  min-width: 200px;
+  margin-top: 173px;
+}
+
 .catalog-item .add-to-comparelist-link {
+  margin-top: 15px;
+
   font-size: 13px;
-  line-height: 36px;
+  line-height: 18px;
   letter-spacing: 0.1px;
   color: rgba(0, 0, 0, 0.5);
 }
@@ -490,7 +578,11 @@ h2.sorting-title {
 }
 
 .main-slider {
-  margin-bottom: 90px;
+  margin-bottom: 93px;
+}
+
+.main-slider img{
+  vertical-align: bottom;
 }
 
 .main-header {
@@ -499,25 +591,26 @@ h2.sorting-title {
   padding-top: 16px;
   padding-right: 60px;
   padding-left: 57px;
-  padding-bottom: 40px;
+  padding-bottom: 48px;
 }
 
 .header-logo {
-  margin-bottom: 19px;
+  margin-bottom: 10px;
 }
 
 .addl-navigation {
   display: flex;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .user-navigation {
   display: flex;
   justify-content: space-between;
   width: 500px;
+  margin-top: 8px;
 }
 
-.user-navigation-link:not(:last-child) {
+.user-navigation > .user-navigation-link:not(:last-child) {
   margin-right: 40px;
 }
 
@@ -526,7 +619,7 @@ h2.sorting-title {
 }
 
 .site-search {
-  width: 440px;
+  width: 443px;
   height: 50px;
   margin-right: auto;
 }
@@ -557,10 +650,16 @@ h2.sorting-title {
   margin-left: 15px;
 }
 
+.site-search-form {
+  display: flex;
+}
 
 .site-search input {
-  width: 355px;
+  box-sizing: border-box;
+  width: 358px;
   padding-left: 41px;
+  padding-bottom: 8px;
+  padding-top: 8px;
 
   font-family: "Open Sans Light", Arial, sans-serif;
   letter-spacing: 0.2px;
@@ -579,16 +678,31 @@ h2.sorting-title {
   flex-wrap: wrap;
 }
 
+.product-categories-list li {
+  margin-right: 40px;
+}
+
+.product-categories-list li:nth-child(6n){
+  margin-right: 0px;
+}
+
 .product-categories-list a {
   display: block;
   position: relative;
   width: 160px;
   padding-top: 195px;
-  margin-right: 40px;
 }
 
-.product-categories-list li:nth-child(6n) a{
-  margin-right: 0px;
+.product-categories-list a:hover::before,
+.product-categories-list a:focus::before {
+  background-color: #f0c52e;
+}
+
+/*ВОПРОС!!! Могу ли я здесь как-то через css повляить только на прозрачность background-image
+через св-во opacity, не затрагивая при этом прозрачность фона (background-color)?*/
+.product-categories-list a:active::before {
+  background-color: #f0c52e;
+  opacity: 0.3;
 }
 
 .product-categories-list a::before {
@@ -715,6 +829,9 @@ h2.sorting-title {
   margin-right: 40px;
 }
 
+/*ВОПРОС!!! Совсем ли это дикий способ смены изображений для hover - скрывать картинки, 
+заданные для img, и показывать на их месте другие через background-image?
+Сделала так, потому что вроде как в лекциях объяснялось, что такие картинки будут контентными*/
 .popular-brands-list li:hover img{
   visibility: hidden;
 }
@@ -738,7 +855,7 @@ h2.sorting-title {
 .about-us-wrapper {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 80px;
+  margin-bottom: 85px;
 }
 
 .about-us,
@@ -756,23 +873,37 @@ h2.sorting-title {
 }
 
 .main-footer {
-  padding-top: 65px;
+  padding-top: 60px;
   padding-bottom: 65px;
 }
 
 .footer-top {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-.footer-options-links li {
-  display: inline-block;
-  vertical-align: middle;
+.footer-options-links {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.footer-options-links li:not(:last-child) {
+.footer-options-links a{
+  display: flex;
+}
+
+.login-link,
+.logout-link,
+.comparelist-link {
   margin-right: 40px;
+}
+
+.footer-options-links .logout-link {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.profile-link {
+  margin-right: 20px;
 }
 
 .footer-middle {
@@ -781,17 +912,24 @@ h2.sorting-title {
   margin-bottom: 65px;
 }
 
-.footer-navigation li {
-  display: inline-block;
+.footer-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footer-navigation li:not(:last-child) {
-  margin-right: 35px;
+  margin-right: 33px;
 }
 
 .footer-address,
 .footer-phone {
+  min-width: 250px;
   margin: 0px;
+}
+
+.footer-phone {
+  text-align: right;
 }
 
 .footer-bottom::before {
@@ -808,17 +946,43 @@ h2.sorting-title {
   align-items: center;
 }
 
-.footer-social li {
-  display: inline-block;
-  vertical-align: middle;
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-social li:not(:last-child) {
+  margin-right: 25px;
+}
+
+.footer-social a:hover path,
+.footer-social a:focus path {
+  fill: rgba(255, 255, 255, 0.6);
+}
+
+.footer-social a:active path {
+  fill: rgba(255, 255, 255, 0.1);
 }
 
 .footer-copyright {
+  align-self: flex-start;
   margin: 0px;
+  min-width: 80px;
+  text-align: right;
+}
+
+.footer-copyright:hover,
+.footer-copyright:focus {
+  opacity: 0.6;
+}
+
+.footer-copyright:active {
+  opacity: 0.3;
 }
 
 .footer-copyright img {
-  vertical-align: bottom;
+  vertical-align: top;
 }
 
 .inner-page .main-header {
@@ -826,11 +990,13 @@ h2.sorting-title {
 }
 
 main h1{
-  margin-bottom: 30px;
+  margin-bottom: 16px;
+  margin-left: 60px;
 }
 
 main .breadcrumbs {
-  margin-bottom: 50px;
+  margin-bottom: 43px;
+  margin-left: 60px;
 }
 
 main.container {
@@ -843,7 +1009,10 @@ main.container {
 }
 
 .breadcrumbs li:not(:last-child) {
-  margin-right: 35px;
+  padding-right: 35px;
+  background-image: url("../img/nav-arrow.svg");
+  background-position: center right 15px;
+  background-repeat: no-repeat;
 }
 
 .sorting-column-wrapper {
@@ -880,6 +1049,7 @@ h2.filter-title {
 .left-column {
   width: 270px;
   padding-left: 60px;
+  padding-top: 69px;
   margin-left: auto;
 
   background-color: #efefef;
@@ -901,6 +1071,11 @@ h2.filter-title {
   background-color: #ebebeb;
 }
 
+.price-scale-filter {
+  min-height: 53px;
+  /*Временно*/
+}
+
 .catalog-list {
   display: flex;
   flex-wrap: wrap;
@@ -910,4 +1085,8 @@ h2.filter-title {
 .catalog-item p {
   padding: 0;
   margin: 0;
+}
+
+.pagination {
+  height: 52px;
 }
