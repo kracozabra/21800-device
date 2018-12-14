@@ -131,15 +131,12 @@ h1, h2, h3 {
   color: #000000;
 }
 
-/*ВОПРОС!!! Есть ли какой-нибудь селектор, позволяющий выбрать все ссылки, у которых указан href?
-Мне это нужно для того, чтобы логотип на главной странице (он размечен как раз как ссылка без href)
-не реагировал на hover/focus/active?*/
-.header-logo:hover,
-.header-logo:focus {
+.header-logo[href]:hover,
+.header-logo[href]:focus {
   color: rgba(0, 0, 0, 0.6);
 }
 
-.header-logo:active {
+.header-logo[href]:active {
   color: rgba(0, 0, 0, 0.3);
 }
 
@@ -345,12 +342,12 @@ h1, h2, h3 {
   color: #ffc600;
 }
 
-.footer-logo:hover,
-.footer-logo:focus {
+.footer-logo[href]:hover,
+.footer-logo[href]:focus {
   color: rgba(255, 190, 0, 0.6);
 }
 
-.footer-logo:active {
+.footer-logo[href]:active {
   color: rgba(255, 190, 0, 0.3);
 }
 
@@ -501,8 +498,7 @@ h2.sorting-title {
   vertical-align: bottom;
 }
 
-/*ВОПРОС!!! Куда повесить hover, чтобы это работало?*/
-.catalog-item-actions:hover {
+.catalog-item:hover .catalog-item-actions{
   visibility: visible;
 }
 
@@ -691,17 +687,17 @@ h2.sorting-title {
   position: relative;
   width: 160px;
   padding-top: 195px;
+
+  background-image: linear-gradient(#f7e296 160px, rgba(255, 255, 255, 0) 160px);
+  background-repeat: no-repeat;
 }
 
-.product-categories-list a:hover::before,
-.product-categories-list a:focus::before {
-  background-color: #f0c52e;
+.product-categories-list a:hover,
+.product-categories-list a:focus {
+  background-image: linear-gradient(#f0c52e 160px, rgba(255, 255, 255, 0) 160px);
 }
 
-/*ВОПРОС!!! Могу ли я здесь как-то через css повляить только на прозрачность background-image
-через св-во opacity, не затрагивая при этом прозрачность фона (background-color)?*/
 .product-categories-list a:active::before {
-  background-color: #f0c52e;
   opacity: 0.3;
 }
 
@@ -716,7 +712,6 @@ h2.sorting-title {
   height: 160px;
   margin-left: -80px;
   
-  background-color: #f7e296;
   background-image: url("../img/product-category-1.svg");
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -831,7 +826,17 @@ h2.sorting-title {
 
 /*ВОПРОС!!! Совсем ли это дикий способ смены изображений для hover - скрывать картинки, 
 заданные для img, и показывать на их месте другие через background-image?
-Сделала так, потому что вроде как в лекциях объяснялось, что такие картинки будут контентными*/
+Сделала так, потому что вроде как в лекциях объяснялось, что такие картинки будут контентными
+ОТВЕТ. весьма дикий, но поскольку мы по требованиям кроссбраузерности не можем использовать, например, 
+filter, чтоб обесцветить картинку, приходится извращаться. я бы поступила ещё хуже - положила 
+бы в блок две картинки, одну из них абсолютом, и меняла бы прозрачность обеим в зависимости от 
+обстоятельств. твой способ годится, не нравится только мигание фона при первом ховере и 
+необходимости писать каждому элементу стили по nth-child. можно сразу фон под картинку 
+положить, не по ховеру. а виден он будет только когда картинка прозрачная
+ДОПОЛНЕНИЕ. Не сработало. Картинки сохранены в .png с прозрачностью, через них просвечивает фоновое 
+изображение. Полчаса убила на попытку выудить нужные картинки из Zeplin или через какие-нибудь 
+онлайн-редакторы, но все безрезультатно. Оставлю как есть*/
+
 .popular-brands-list li:hover img{
   visibility: hidden;
 }
