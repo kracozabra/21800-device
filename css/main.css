@@ -242,11 +242,40 @@ h1, h2, h3 {
   text-transform: uppercase;
 }
 
-.catalog-navigation-item:hover .catalog-subnavigation{
-  display: block;
+.catalog-navigation-item:hover .catalog-subnavigation,
+.catalog-navigation-item:focus .catalog-subnavigation {
+  opacity: 1;
+  pointer-events: auto;
 }
 
+.catalog-navigation-item {
+  position: relative;
+}
+
+.catalog-subnavigation {
+  position: absolute;
+  top: 100%;
+  left: -57px;
+
+  box-sizing: border-box;
+  width: 1160px;
+  padding-left: 57px;
+  padding-right: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  opacity: 0;
+  pointer-events: none;
+  background-color: #f7e296;
+}
+
+/*ВОПРОС!!! Существует ли какой-то элегантный способ расположить элементы
+подменю в соответствии с макетом (колонки по 3-2-1 штуки)? 
+В голову не приходит ничего умнее, чем просто обернуть нужное кол-во
+ссылок в дивы и уже их расположить горизонтально друг за другом. Но при
+добавлении новых категорий тогда все будет криво-косо...*/
 .catalog-subnavigation a {
+  line-height: 36px;
   color: #000000;
 }
 
@@ -479,10 +508,79 @@ h2.sorting-title {
   margin-bottom: 34px;
 }
 
-.colors-filter,
-.bluetooth-filter {
+
+/**/
+
+.colors-filter label,
+.bluetooth-filter label {
+  position: relative;
   padding-left: 37px;
+  cursor: pointer;
 }
+
+.colors-filter input[type="checkbox"] + .checkbox-indicator {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+
+  width: 27px;
+  height: 23px;
+
+  background-image: url("../img/checkbox-off.svg");
+  background-repeat: no-repeat;
+}
+
+.colors-filter input[type="checkbox"]:focus + .checkbox-indicator {
+  border-color: #663d15;
+  outline: thin dotted;
+  outline: 15px auto -webkit-focus-ring-color;
+}
+
+.colors-filter input[type="checkbox"]:hover + .checkbox-indicator {
+  opacity: 0.6;
+}
+
+.colors-filter input[type="checkbox"]:checked + .checkbox-indicator {
+  background-image: url("../img/checkbox-on.svg");
+  background-repeat: no-repeat;
+}
+
+
+
+.bluetooth-filter input[type="radio"] + .radio-indicator {
+  position: absolute;
+  top: -3px;
+  left: -1px;
+
+  width: 17px;
+  height: 17px;
+  border: 4px solid #000000;
+  border-radius: 50%;
+}
+
+.bluetooth-filter input[type="radio"]:focus + .radio-indicator {
+  outline: thin dotted;
+  outline: 15px auto -webkit-focus-ring-color;
+}
+
+.bluetooth-filter input[type="radio"]:hover + .radio-indicator {
+  opacity: 0.6;
+}
+
+.bluetooth-filter input[type="radio"]:checked + .radio-indicator::before {
+  content: "";
+
+  position: absolute;
+  top: 4px;
+  left: 4px;
+
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #000000;
+}
+
+/**/
 
 .filter-button {
   min-width: 200px;
@@ -591,6 +689,7 @@ h2.sorting-title {
 }
 
 .header-logo {
+  align-self: flex-start;
   margin-bottom: 10px;
 }
 
@@ -824,36 +923,23 @@ h2.sorting-title {
   margin-right: 40px;
 }
 
-/*ВОПРОС!!! Совсем ли это дикий способ смены изображений для hover - скрывать картинки, 
-заданные для img, и показывать на их месте другие через background-image?
-Сделала так, потому что вроде как в лекциях объяснялось, что такие картинки будут контентными
-ОТВЕТ. весьма дикий, но поскольку мы по требованиям кроссбраузерности не можем использовать, например, 
-filter, чтоб обесцветить картинку, приходится извращаться. я бы поступила ещё хуже - положила 
-бы в блок две картинки, одну из них абсолютом, и меняла бы прозрачность обеим в зависимости от 
-обстоятельств. твой способ годится, не нравится только мигание фона при первом ховере и 
-необходимости писать каждому элементу стили по nth-child. можно сразу фон под картинку 
-положить, не по ховеру. а виден он будет только когда картинка прозрачная
-ДОПОЛНЕНИЕ. Не сработало. Картинки сохранены в .png с прозрачностью, через них просвечивает фоновое 
-изображение. Полчаса убила на попытку выудить нужные картинки из Zeplin или через какие-нибудь 
-онлайн-редакторы, но все безрезультатно. Оставлю как есть*/
-
-.popular-brands-list li:hover img{
+.popular-brands-list a:hover img{
   visibility: hidden;
 }
 
-.popular-brands-list li:nth-child(1):hover a{
+.popular-brands-list li:nth-child(1) a{
   background-image: url("../img/brand-logo-1-hover.png");
 }
 
-.popular-brands-list li:nth-child(2):hover a{
+.popular-brands-list li:nth-child(2) a{
   background-image: url("../img/brand-logo-2-hover.png");
 }
 
-.popular-brands-list li:nth-child(3):hover a{
+.popular-brands-list li:nth-child(3) a{
   background-image: url("../img/brand-logo-3-hover.png");
 }
 
-.popular-brands-list li:nth-child(4):hover a{
+.popular-brands-list li:nth-child(4) a{
   background-image: url("../img/brand-logo-4-hover.png");
 }
 
@@ -1094,4 +1180,150 @@ h2.filter-title {
 
 .pagination {
   height: 52px;
+}
+
+.modal {
+  position: fixed;
+
+  box-sizing: border-box;
+  
+  color: #000000;
+
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-feedback {
+  top: 120px;
+  left: 50%;
+  
+  width: 960px;
+  margin-left: -480px;
+  padding: 93px 100px;
+  padding-bottom: 75px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  padding: 0px;
+  
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+
+  background-color: rgba(240, 197, 46, 0.5);
+  border: 0;
+
+  cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  background-color: rgba(240, 197, 46, 1);
+}
+
+.modal-close:active {
+  background-color: rgba(240, 197, 46, 0.3);
+}
+
+.modal-close::before,
+.modal-close::after {
+  content: "";
+
+  position: absolute;
+  top: 28px;
+  left: 13px;
+
+  width: 30px;
+  height: 2px;
+
+  background-color: #ffffff;
+}
+
+.modal-close::before {
+  transform: rotate(45deg);
+}
+
+.modal-close::after {
+  transform: rotate(-45deg);
+}
+
+.modal-feedback .fields-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feedback-item {
+  margin: 0px;
+  margin-bottom: 35px;
+}
+
+.fields-group .feedback-item {
+  min-width: 360px;
+}
+
+.feedback-item label {
+  display: block;
+  margin-bottom: 7px;
+
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.feedback-item input,
+.feedback-item textarea {
+  box-sizing: border-box;
+  width: 100%;
+  border: 3px solid transparent;
+  padding: 12px 17px;
+
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #464646;
+
+  background-color: #f2f2f2;
+}
+
+.feedback-item input:hover,
+.feedback-item textarea:hover { 
+  background-color: #eaeaea;
+}
+
+.feedback-item input:focus,
+.feedback-item textarea:focus { 
+  background-color: #ffffff;
+  border: 3px solid #f7e296;
+  outline: none;
+}
+
+
+.feedback-item input::placeholder,
+.feedback-item textarea::placeholder {
+  color: rgba(70, 70, 70, 0.4);
+} 
+
+.modal-feedback .button {
+  min-width: 200px;
+}
+
+.modal-map {
+  top: 50%;
+  left: 50%;
+
+  width: 960px;
+  height: 560px;
+  margin-top: -280px;
+  margin-left: -480px;
+  
+  border: none;
+}
+
+.modal iframe {
+  border: 0;
 }
