@@ -1,33 +1,38 @@
 @font-face {
   font-family: "Gilroy";
-  src: url("../fonts/gilroyextrabold-webfont.woff2") format("woff2");
+  src: url("../fonts/gilroyextrabold-webfont.woff2") format("woff2"),
+       url("../fonts/gilroyextrabold-webfont.woff") format('woff');
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Gilroy";
-  src: url("../fonts/gilroylight-webfont.woff2") format("woff2");
+  src: url("../fonts/gilroylight-webfont.woff2") format("woff2"),
+       url("../fonts/gilroylight-webfont.woff") format('woff');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/opensans-light-webfont.woff2") format("woff2");
+  src: url("../fonts/opensans-light-webfont.woff2") format("woff2"),
+       url("../fonts/opensans-light-webfont.woff") format('woff');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Open Sans";
-  src: url("../fonts/opensans-regular-webfont.woff2") format("woff2");
+  src: url("../fonts/opensans-regular-webfont.woff2") format("woff2"),
+       url("../fonts/opensans-regular-webfont.woff") format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 
 body {
+  min-width: 1160px;
   padding: 0;
 
   font-family: "Open Sans", Arial, sans-serif;
@@ -243,7 +248,8 @@ h1, h2, h3 {
 }
 
 .catalog-navigation-item:hover .catalog-subnavigation,
-.catalog-navigation-item:focus .catalog-subnavigation {
+.catalog-navigation-item:focus .catalog-subnavigation,
+.catalog-navigation-item:focus-within .catalog-subnavigation {
   opacity: 1;
   pointer-events: auto;
 }
@@ -257,8 +263,13 @@ h1, h2, h3 {
   top: 100%;
   left: -57px;
 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
   box-sizing: border-box;
   width: 1160px;
+  min-height: 100px;
   padding-left: 57px;
   padding-right: 60px;
   padding-top: 40px;
@@ -273,7 +284,9 @@ h1, h2, h3 {
 подменю в соответствии с макетом (колонки по 3-2-1 штуки)? 
 В голову не приходит ничего умнее, чем просто обернуть нужное кол-во
 ссылок в дивы и уже их расположить горизонтально друг за другом. Но при
-добавлении новых категорий тогда все будет криво-косо...*/
+добавлении новых категорий тогда все будет криво-косо...
+И... Не выходит все равно. Попробую к след. заданию сделать через javascript, может выйдет.
+А если нет - сделаю через дивы.*/
 .catalog-subnavigation a {
   line-height: 36px;
   color: #000000;
@@ -300,6 +313,7 @@ h1, h2, h3 {
    color: rgba(0, 0, 0, 0.3);
 }
 
+.services-navigation li:active,
 .services-navigation .button:active,
 .services-navigation-current .button {
   color: #f7e184;
@@ -483,7 +497,7 @@ h2.sorting-title {
   padding-top: 10px;
   padding-bottom: 16px;
 
-  font-family: "Gilroy";
+  font-family: "Gilroy", Arial, sans-serif;
   font-weight: 800;
   font-size: 18px;
   line-height: 24px;
@@ -589,7 +603,7 @@ h2.sorting-title {
 .catalog-item {
   position: relative;
   width: 360px;
-  margin-bottom: 50px;
+  margin-bottom: 47px;
 }
 
 .catalog-item-image img {
@@ -608,11 +622,12 @@ h2.sorting-title {
 }
 
 .catalog-item h3 {
-  width: 250px;
+  width: 260px;
   font-family: "Gilroy", Arial, sans-serif;
   font-weight: 800;
   font-size: 18px;
   line-height: 24px;
+  letter-spacing: 0.2px;
 }
 
 .catalog-item-price {
@@ -659,6 +674,29 @@ h2.sorting-title {
 
 .catalog-item .add-to-comparelist-link:active { 
   color: rgba(0, 0, 0, 0.2);
+}
+
+.catalog-item.new-badge::before {
+  content: "NEW";
+
+  position: absolute;
+  top: 28px;
+  right: 28px;
+
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  padding-top: 17px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+
+  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.7px;
+  text-align: center;
 }
 
 
@@ -895,7 +933,7 @@ h2.sorting-title {
   background-image: url("../img/delivery-service.svg");
   background-size: 136px 164px;
   background-repeat: no-repeat;
-  background-position: right 60px top;
+  background-position: right 60px top 10px;
 }
 
 .services-slider-list li:nth-child(2) .services-description-slide{
@@ -1184,6 +1222,9 @@ h2.filter-title {
 
 .modal {
   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
 
   box-sizing: border-box;
   
@@ -1194,11 +1235,7 @@ h2.filter-title {
 }
 
 .modal-feedback {
-  top: 120px;
-  left: 50%;
-  
   width: 960px;
-  margin-left: -480px;
   padding: 93px 100px;
   padding-bottom: 75px;
 }
@@ -1217,6 +1254,7 @@ h2.filter-title {
   border: 0;
 
   cursor: pointer;
+  outline: none;
 }
 
 .modal-close:hover,
@@ -1313,13 +1351,8 @@ h2.filter-title {
 }
 
 .modal-map {
-  top: 50%;
-  left: 50%;
-
   width: 960px;
   height: 560px;
-  margin-top: -280px;
-  margin-left: -480px;
   
   border: none;
 }
