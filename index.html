@@ -39,12 +39,24 @@
         <li class="site-navigation-item catalog-navigation-item">
           <a href="catalog.html">Каталог товаров<span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="rgba(0, 0, 0, 0.3)" d="M16 7H9V0H7v7H0v2h7v7h2V9h7z"/></svg></span></a>
           <ul class="catalog-subnavigation">
-          	<li><a href="catalog/vr.html">Виртуальная реальность</a></li>
-          	<li><a href="catalog/selfie-monopods.html">Моноподы для селфи</a></li>
-          	<li><a href="catalog/action-cameras.html">Экшн-камеры</a></li>
-          	<li><a href="catalog/fitness-bands.html">Фитнес-браслеты</a></li>
-          	<li><a href="catalog/smart-watches.html">Умные часы</a></li>
-          	<li><a href="catalog/quadcopters.html">Квадрокоптеры</a></li>
+          	<li>
+          		<ul class="catalog-subnavigation-column">
+          			<li><a href="catalog/vr.html">Виртуальная реальность</a></li>
+		          	<li><a href="catalog/selfie-monopods.html">Моноподы для селфи</a></li>
+		          	<li><a href="catalog/action-cameras.html">Экшн-камеры</a></li>
+          		</ul>
+          	</li>
+          	<li>
+          		<ul class="catalog-subnavigation-column">
+          			<li><a href="catalog/fitness-bands.html">Фитнес-браслеты</a></li>
+          			<li><a href="catalog/smart-watches.html">Умные часы</a></li>
+          		</ul>
+          	</li>
+          	<li>
+          		<ul class="catalog-subnavigation-column">
+          			<li><a href="catalog/quadcopters.html">Квадрокоптеры</a></li>
+          		</ul>
+          	</li>
           </ul>
         </li>
         <li class="site-navigation-item"><a href="delivery.html">Доставка</a></li>
@@ -194,20 +206,20 @@
 
   <section class="modal modal-feedback">
     <h2 class="visually-hidden">Обратная связь</h2>
-    <form class="feedback-form" action="https://echo.htmlacademy.ru" method="post">
+    <form class="feedback-form" action="https://echo.htmlacademy.ru" method="post" novalidate>
     	<div class="fields-group">
 	    	<p class="feedback-item">
 	    		<label for="feedback-name">Ваше имя:</label>
-	    		<input type="text" name="feedback-name" id="feedback-name" placeholder="Имя Фамилия">
+	    		<input type="text" name="feedback-name" id="feedback-name" placeholder="Имя Фамилия" required>
 	    	</p>
 	    	<p class="feedback-item">
 		    	<label for="feedback-email">Ваш e-mail:</label>
-		    	<input type="email" name="feedback-email" id="feedback-email" placeholder="email@example.com">
+		    	<input type="email" name="feedback-email" id="feedback-email" placeholder="email@example.com" required>
 		    </p>
 		  </div>
 	    <p class="feedback-item">
 	    	<label for="feedback-message">Текст письма:</label>
-	    	<textarea name="feedback-message" id="feedback-message" rows="7" placeholder="В свободной форме"></textarea>
+	    	<textarea name="feedback-message" id="feedback-message" rows="7" placeholder="В свободной форме" required></textarea>
 	    </p>
     	<button class="button" type="submit">Отправить</button>
     	<button class="modal-close" type="button"></button>
@@ -246,7 +258,6 @@
   			if (feedbackPopup.classList.contains("modal-show")) {
   				evt.preventDefault();
   				feedbackPopup.classList.remove("modal-show");
-  				feedbackPopup.classList.remove("modal-error");
   			}
   		}
   	});
@@ -265,15 +276,24 @@
   	feedbackClose.addEventListener("click", function (evt) {
   		evt.preventDefault();
   		feedbackPopup.classList.remove("modal-show");
-  		feedbackPopup.classList.remove("modal-error");
   	});
 
   	feedbackForm.addEventListener("submit", function (evt) {
   		if (!feedbackName.value || !feedbackEmail.value || !feedbackMessage.value) {
   			evt.preventDefault();
-  			feedbackPopup.classList.remove("modal-error");
-        feedbackPopup.offsetWidth = feedbackPopup.offsetWidth;
-  			feedbackPopup.classList.add("modal-error");
+  			feedbackName.classList.remove("modal-error");
+  			feedbackEmail.classList.remove("modal-error");
+  			feedbackMessage.classList.remove("modal-error");
+			  if (!feedbackName.value) {
+			  	feedbackName.classList.add("modal-error");
+			  }
+			  if (!feedbackEmail.value) {
+			  	feedbackEmail.classList.add("modal-error");
+			  }
+			  if (!feedbackMessage.value) {
+			  	feedbackMessage.classList.add("modal-error");
+			  }
+  			console.log("ERROR! EMPTY FIELD!");
   		} else {
   			if (isStorageSupport)  {
   				localStorage.setItem("storageName", "feedbackName.value");
