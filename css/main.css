@@ -1221,6 +1221,7 @@ h2.filter-title {
 }
 
 .modal {
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -1232,6 +1233,10 @@ h2.filter-title {
 
   background-color: #ffffff;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-show {
+  display: block;
 }
 
 .modal-feedback {
@@ -1345,6 +1350,11 @@ h2.filter-title {
 .feedback-item textarea::placeholder {
   color: rgba(70, 70, 70, 0.4);
 } 
+
+.feedback-item .modal-error {
+  border: 3px solid transparent;
+  background-color: #edb5b5;
+}
 
 .modal-feedback .button {
   min-width: 200px;

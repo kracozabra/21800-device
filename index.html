@@ -134,7 +134,7 @@
 				<h2>Контакты</h2>
 				<p>Вы можете забрать товар сами, заехав в наш офис. Заодно, вы сможете проверить работоспособность покупки. Всякое бывает.</p>
 				<p>
-				  <a href="https://goo.gl/maps/porCcrEUpJE2" target="_blank"><img src="img/map.jpg" width="560" height="222" alt="Карта проезда. г. Москва, ул. Строителей, 15"></a>
+				  <a href="https://goo.gl/maps/porCcrEUpJE2" class="map-link" target="_blank"><img src="img/map.jpg" width="560" height="222" alt="Карта проезда. г. Москва, ул. Строителей, 15"></a>
 				 </p>
 				<a class="button feedback-button" href="mailto:feedback@device.com?subject=Вопрос&nbsp;с&nbsp;сайта">Напишите нам</a>
 			</section>
@@ -192,33 +192,119 @@
   	</div>
   </footer>
 
-  <section class="modal modal-feedback hidden">
+  <section class="modal modal-feedback">
     <h2 class="visually-hidden">Обратная связь</h2>
     <form class="feedback-form" action="https://echo.htmlacademy.ru" method="post">
     	<div class="fields-group">
 	    	<p class="feedback-item">
 	    		<label for="feedback-name">Ваше имя:</label>
-	    		<input type="text" name="feedback-name" id="feedback-name" placeholder="Имя Фамилия" required>
+	    		<input type="text" name="feedback-name" id="feedback-name" placeholder="Имя Фамилия">
 	    	</p>
 	    	<p class="feedback-item">
 		    	<label for="feedback-email">Ваш e-mail:</label>
-		    	<input type="email" name="feedback-email" id="feedback-email" placeholder="email@example.com" required>
+		    	<input type="email" name="feedback-email" id="feedback-email" placeholder="email@example.com">
 		    </p>
 		  </div>
 	    <p class="feedback-item">
 	    	<label for="feedback-message">Текст письма:</label>
-	    	<textarea name="feedback-message" id="feedback-message" rows="7" placeholder="В свободной форме" required></textarea>
+	    	<textarea name="feedback-message" id="feedback-message" rows="7" placeholder="В свободной форме"></textarea>
 	    </p>
     	<button class="button" type="submit">Отправить</button>
     	<button class="modal-close" type="button"></button>
     </form>
   </section>
 
-  <section class="modal modal-map hidden">
+  <section class="modal modal-map">
     <h2 class="visually-hidden">Как до нас добраться</h2>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2249.1125488779976!2d37.52742931592807!3d55.687030980535816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54cf65f5c8955%3A0x694710ccd55501e!2z0YPQuy4g0KHRgtGA0L7QuNGC0LXQu9C10LksIDE1LCDQnNC-0YHQutCy0LAsIDExOTMxMQ!5e0!3m2!1sru!2sru!4v1545081262127" width="960" height="560"  allowfullscreen aria-label="Карта проезда. г. Москва, ул. Строителей, 15"></iframe>
     <button class="modal-close" type="button"></button>
   </section>
 
+  <script>
+
+  	var feedbackLink = document.querySelector(".feedback-button");
+  	var feedbackPopup = document.querySelector(".modal-feedback");
+  	var feedbackClose = document.querySelector(".modal-close");
+  	var inputFocus = feedbackPopup.querySelector("input");
+  	var feedbackForm = feedbackPopup.querySelector("form");
+  	var feedbackName = feedbackPopup.querySelector("[name=feedback-name]");
+  	var feedbackEmail = feedbackPopup.querySelector("[name=feedback-email]");
+  	var feedbackMessage = feedbackPopup.querySelector("[name=feedback-message]");
+  	// var storageName = localStorage.getItem("feedbackName");
+
+  	var isStorageSupport = true;
+  	var storageName = "";
+
+  	try {
+  		storageName = localStorage.getItem("feedbackName");
+  	} catch (err) {
+  		isStorageSupport = false;
+  	}
+
+  	document.addEventListener("keydown", function (evt) {
+  		if (evt.keyCode === 27) {
+  			if (feedbackPopup.classList.contains("modal-show")) {
+  				evt.preventDefault();
+  				feedbackPopup.classList.remove("modal-show");
+  				feedbackPopup.classList.remove("modal-error");
+  			}
+  		}
+  	});
+
+  	feedbackLink.addEventListener("click", function (evt) {
+  		evt.preventDefault();
+  		feedbackPopup.classList.add("modal-show");
+  		if (storageName) {
+  			feedbackName.value = storageName;
+  			feedbackEmail.focus();
+  		} else {
+  			feedbackName.focus();
+  		}
+  	});
+
+  	feedbackClose.addEventListener("click", function (evt) {
+  		evt.preventDefault();
+  		feedbackPopup.classList.remove("modal-show");
+  		feedbackPopup.classList.remove("modal-error");
+  	});
+
+  	feedbackForm.addEventListener("submit", function (evt) {
+  		if (!feedbackName.value || !feedbackEmail.value || !feedbackMessage.value) {
+  			evt.preventDefault();
+  			feedbackPopup.classList.remove("modal-error");
+        feedbackPopup.offsetWidth = feedbackPopup.offsetWidth;
+  			feedbackPopup.classList.add("modal-error");
+  		} else {
+  			if (isStorageSupport)  {
+  				localStorage.setItem("storageName", "feedbackName.value");
+  			}
+  		}
+  		
+  	});
+
+	  var mapLink = document.querySelector(".map-link");
+	  var mapPopup = document.querySelector(".modal-map");
+	  var mapClose = mapPopup.querySelector(".modal-close");
+	  
+	  mapLink.addEventListener("click", function (evt) {
+	    evt.preventDefault();
+	    mapPopup.classList.add("modal-show");
+	  });
+
+	  mapClose.addEventListener("click", function (evt) {
+	    evt.preventDefault();
+	    mapPopup.classList.remove("modal-show");
+	  });
+
+	  window.addEventListener("keydown", function (evt) {
+	    if (evt.keyCode === 27) {
+	      evt.preventDefault();
+	      if (mapPopup.classList.contains("modal-show")) {
+	        mapPopup.classList.remove("modal-show");
+	      }
+	    }
+	  });
+
+  </script>
   </body>
 </html>
