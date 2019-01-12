@@ -17,7 +17,7 @@
         <form class="site-search-form" action="https://echo.htmlacademy.ru" method="post">
           <label for="site-search" class="visually-hidden">Поиск по сайту</label>
           <input type="search" name="site-search" id="site-search" placeholder="Поиск по сайту">
-          <button class="site-search-button hidden" type="submit">Найти</button> 
+          <button class="site-search-button" type="submit">Найти</button> 
         </form>
       </div>
       <div class="user-navigation">
@@ -80,7 +80,14 @@
         <h2 class="filter-title">Фильтр:</h2>
         <section class="sorting">
           <h2 class="sorting-title">Сортировка:</h2>
-          <!-- Здесь будет сортировка -->
+          <ul class="sorting-options">
+            <li><a class="sorting-options-selected" href="#">По цене</a></li>
+            <li><a href="#">По типу</a></li>
+            <li><a href="#">По популярности</a></li>
+          </ul>
+          <div class="sorting-direction">
+            <a class="sorting-up" href="#" area-label="По возрастанию"></a>
+            <a class="sorting-down sorting-direction-selected" href="#" area-label="По убыванию"></a>
         </section>
       </div>
     </div>
@@ -91,7 +98,18 @@
             <form class="filter-form" action="https://echo.htmlacademy.ru" method="get">
               <fieldset>
                 <legend>Стоимость</legend>
-                <div class="price-scale-filter"></div>
+                <div class="price-range-filter">
+                  <div class="range-controls">
+                    <div class="scale">
+                      <div class="bar">
+                          <span class="sign-from">от 0</span>
+                          <span class="sign-to">до 5000</span>
+                      </div>
+                    </div>
+                    <div class="toggle toggle-min"></div>
+                    <div class="toggle toggle-max"></div>
+                  </div>
+                </div>
               </fieldset>
               <fieldset>
                 <legend>Цвет</legend>  
@@ -213,8 +231,15 @@
                 </div>
               </li>
             </ul>
-            <!-- Здесь будет навигация по страницам -->
-            <div class="pagination"></div>
+            <div class="pagination">
+              <a class="pagination-button" href="#">Назад</a>
+              <ul class="pagination-list">
+                <li><a class="current-page" href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+              </ul>
+              <a class="pagination-button" href="#">Вперед</a>
+            </div>
           </section>
         </div>
       </div>
