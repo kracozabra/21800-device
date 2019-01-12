@@ -337,6 +337,8 @@ h3 {
 }
 
 .catalog-navigation-item {
+  position: relative;
+
   width: 270px;
   margin-right: 270px;
 }
@@ -345,18 +347,7 @@ h3 {
   margin-left: 15px;
 }
 
-.catalog-navigation-item:hover .catalog-subnavigation,
-.catalog-navigation-item:focus .catalog-subnavigation,
-.catalog-navigation-item:focus-within .catalog-subnavigation,
-.catalog-subnavigation:hover,
-.site-navigation-item a:hover {
-  opacity: 1;
-  pointer-events: auto;
-}
 
-.catalog-navigation-item {
-  position: relative;
-}
 
 .catalog-subnavigation {
   position: absolute;
@@ -364,7 +355,7 @@ h3 {
   left: -57px;
   z-index: 1;
 
-  display: flex;
+  display: none;
 
   box-sizing: border-box;
   width: 1160px;
@@ -374,14 +365,17 @@ h3 {
   padding-top: 17px;
   padding-bottom: 35px;
 
-  opacity: 0;
-  pointer-events: none;
   background-color: #f7e296;
 }
 
+.catalog-navigation-item:hover .catalog-subnavigation,
+.catalog-navigation-item:focus .catalog-subnavigation {
+  display: flex;
+}
+
 .catalog-subnavigation>li:not(:last-child) {
-    min-width: 140px;
-    margin-right: 60px;
+  min-width: 140px;
+  margin-right: 60px;
 }
 
 .catalog-subnavigation a {
@@ -1099,7 +1093,7 @@ main .breadcrumbs {
 }
 
 .sorting-column-wrapper {
-  background-image: linear-gradient(to right, #dbdbdb 50%, #ebebeb 50%);
+  background-image: linear-gradient(to right, #dbdbdb 20%, #ebebeb 80%);
 }
 
 .sorting-column {
@@ -1187,7 +1181,8 @@ h2.sorting-title {
 
 h2.filter-title {
   width: 270px;
-  padding-top: 24px;
+  padding-top: 23px;
+  padding-bottom: 23px;
   padding-left: 60px;
 
   background-color: #dbdbdb;
@@ -1307,7 +1302,6 @@ h2.filter-title {
 
 .filter-form legend {
   min-width: 200px;
-  margin-top: 40px;
   padding-top: 10px;
   padding-bottom: 16px;
 
