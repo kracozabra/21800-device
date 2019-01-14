@@ -115,9 +115,12 @@ img {
   background-color: #f0c52e;
 }
 
-h1, 
-h2, 
-h3 {
+.main-page h1,
+.inner-page h1, 
+.main-page h2,
+.inner-page h2, 
+.main-page h3,
+.inner-page h3 {
   margin: 0;
   padding: 0;
 
@@ -446,7 +449,7 @@ h3 {
 
 .main-slider {
   position: relative;
-  height: 500px;
+  min-height: 500px;
   margin-bottom: 93px;
 }
 
@@ -700,24 +703,24 @@ h3 {
   background-position: 50% 50%;
 }
 
-.product-categories-list li:nth-child(2) a::before {
+.product-categories-item:nth-child(2) a::before {
   background-image: url("../img/product-category-2.svg");
   background-position: 50% 100%;
 }
 
-.product-categories-list li:nth-child(3) a::before {
+.product-categories-item:nth-child(3) a::before {
   background-image: url("../img/product-category-3.svg");
 }
 
-.product-categories-list li:nth-child(4) a::before {
+.product-categories-item:nth-child(4) a::before {
   background-image: url("../img/product-category-4.svg");
 }
 
-.product-categories-list li:nth-child(5) a::before {
+.product-categories-item:nth-child(5) a::before {
   background-image: url("../img/product-category-5.svg");
 }
 
-.product-categories-list li:nth-child(6) a::before {
+.product-categories-item:nth-child(6) a::before {
   background-image: url("../img/product-category-6.svg");
 }
 
@@ -806,13 +809,13 @@ h3 {
   background-position: right 65px top 15px;
 }
 
-.services-slider-list li:nth-child(2) .services-description-slide{
+.services-slider-item:nth-child(2) .services-description-slide{
   background-image: url("../img/warranty-service.svg");
   background-size: 171px 194px;
   background-position: right 50px top;
 }
 
-.services-slider-list li:nth-child(3) .services-description-slide{
+.services-slider-item:nth-child(3) .services-description-slide{
   background-image: url("../img/credit-service.svg");
   background-size: 156px 186px;
   background-position: right 65px top;
@@ -833,23 +836,23 @@ h3 {
   display: block;
 }
 
-.popular-brands-list a:hover img{
+.popular-brands-link:hover img{
   visibility: hidden;
 }
 
-.popular-brands-list li:nth-child(1) a{
+.popular-brands-item:nth-child(1) a{
   background-image: url("../img/brand-logo-1-hover.png");
 }
 
-.popular-brands-list li:nth-child(2) a{
+.popular-brands-item:nth-child(2) a{
   background-image: url("../img/brand-logo-2-hover.png");
 }
 
-.popular-brands-list li:nth-child(3) a{
+.popular-brands-item:nth-child(3) a{
   background-image: url("../img/brand-logo-3-hover.png");
 }
 
-.popular-brands-list li:nth-child(4) a{
+.popular-brands-item:nth-child(4) a{
   background-image: url("../img/brand-logo-4-hover.png");
 }
 
@@ -1166,7 +1169,8 @@ main.container {
  padding-left: 60px;
 }
 
-main h1{
+.main-page h1,
+.inner-page h1{
   margin-bottom: 13px;
   margin-left: 60px;
 }
